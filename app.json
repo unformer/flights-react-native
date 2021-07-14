@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "fly-app",
+    "slug": "fly-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "fly-app"
+}
