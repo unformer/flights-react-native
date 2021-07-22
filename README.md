@@ -1,2 +1,2 @@
-# yarn
-# expo start
+yarn
+expo start
