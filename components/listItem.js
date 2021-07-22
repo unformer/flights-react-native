@@ -7,48 +7,46 @@ import wishNo from '../assets/images/wish-no.svg'
 import placeArrow from '../assets/images/place-arrow.svg'
 
 
-const ListItem = (props) => {    
+const ListItem = (props) => {
 
     const toggle = (flyId) => {
         props.toggleWishList(flyId)
     }
 
     return (
-        <>              
-            <TouchableWithoutFeedback onPress={() => props.navigation.navigate('SingleFly', {
-                flyId: props.item.id,
-                date: props.item.date,
-                price: props.item.price
-            }
-            )}>
-                <View key={props.item.id} style={styles.flyBlock}>
-                    <View style={styles.planeBg}>
-                        <Image
-                            style={styles.plane}
-                            source={plane}
-                        />
-                    </View>
-                    <View style={styles.routeInfo}>
-                        <Text style={styles.route}>Moskow <Image style={styles.placeArrow} source={placeArrow} /> New York</Text>
-                        <Text style={styles.date}>SVO - {Moment(props.item.date).format('DD MMMM,  YYYY')} - 15:30</Text>
-                        <Text style={styles.company}>{props.item.company}</Text>
-                    </View>
-                    <View>
-                        <TouchableWithoutFeedback onPress={() => toggle(props.item.id)}>
-                            <Image
-                                style={styles.wishIcon}
-                                source={props.item.inWish ? wishYes : wishNo}
-                            />
-                        </TouchableWithoutFeedback>
-                    </View>
-                    <View style={styles.priceWrap}>
-                        <Text style={styles.price}>price:
-                            <Text style={styles.sum}>{new Intl.NumberFormat('ru-RU').format(props.item.price)} ₽</Text>
-                        </Text>
-                    </View>
+        <TouchableWithoutFeedback onPress={() => props.navigation.navigate('SingleFly', {
+            flyId: props.item.id,
+            date: props.item.date,
+            price: props.item.price
+        }
+        )}>
+            <View key={props.item.id} style={styles.flyBlock}>
+                <View style={styles.planeBg}>
+                    <Image
+                        style={styles.plane}
+                        source={plane}
+                    />
                 </View>
-            </TouchableWithoutFeedback>
-        </>
+                <View style={styles.routeInfo}>
+                    <Text style={styles.route}>Moskow <Image style={styles.placeArrow} source={placeArrow} /> New York</Text>
+                    <Text style={styles.date}>SVO - {Moment(props.item.date).format('DD MMMM,  YYYY')} - 15:30</Text>
+                    <Text style={styles.company}>{props.item.company}</Text>
+                </View>
+                <View>
+                    <TouchableWithoutFeedback onPress={() => toggle(props.item.id)}>
+                        <Image
+                            style={styles.wishIcon}
+                            source={props.item.inWish ? wishYes : wishNo}
+                        />
+                    </TouchableWithoutFeedback>
+                </View>
+                <View style={styles.priceWrap}>
+                    <Text style={styles.price}>price:
+                        <Text style={styles.sum}>{new Intl.NumberFormat('ru-RU').format(props.item.price)} ₽</Text>
+                    </Text>
+                </View>
+            </View>
+        </TouchableWithoutFeedback>
     )
 }
 
@@ -64,7 +62,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        margin: 'auto'
     },
     planeBg: {
         borderRadius: 100,

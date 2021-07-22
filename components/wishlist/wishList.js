@@ -1,23 +1,19 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { StyleSheet, ScrollView } from 'react-native'
 import ListItem from '../listItem'
 
-const WishList = (props) => {       
-
+const WishList = (props) => {      
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             {props.wishList.filter(item => item.inWish === true).map(f =>
                 <ListItem key={f.id} {...props} item={f} toggleWishList={props.toggleWishList} />
             )}
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
+    container: {        
         paddingTop: 20,
         backgroundColor: '#F8F8F8'
     }

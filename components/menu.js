@@ -7,9 +7,7 @@ import Tabs from './tabBar'
 const Popup = createStackNavigator()
 
 const Menu = () => {
-
     return (
-
         <NavigationContainer>
             <Popup.Navigator>
                 <Popup.Screen
@@ -37,7 +35,6 @@ const Menu = () => {
                 <Popup.Screen name="SingleFly" component={SingleFlyInfoPopupContainer} options={{headerShown: false}} />
             </Popup.Navigator>
         </NavigationContainer>
-
     )
 }
 

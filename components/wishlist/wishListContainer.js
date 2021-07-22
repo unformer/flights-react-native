@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { GET_FLIGHTS_LIST, TOGGLE_WISHLIST } from '../../redux/flightsListReducer'
 
 const WishListContainer = (props) => {
-
     return (        
         <WishList {...props} wishList={props.flightsList.flightsList} toggleWishList={props.toggleWishList} />  
     )

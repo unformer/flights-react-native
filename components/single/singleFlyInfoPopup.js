@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableWithoutFeedback, ScrollView } from 'react-native'
 import Moment from 'moment'
 import wishYes from '../../assets/images/wish-yes.svg'
 import wishNo from '../../assets/images/wish-no.svg'
@@ -15,7 +15,7 @@ const SingleFlyInfoPopup = (props) => {
     const inWish = props.list.filter(l => l.id === flyId)[0].inWish
 
     return (
-        <View style={styles.wrap}>
+        <ScrollView style={styles.wrap}>
             <TouchableWithoutFeedback onPress={() => props.navigation.goBack()}>
                 <Image
                     style={styles.bg}
@@ -60,7 +60,11 @@ const SingleFlyInfoPopup = (props) => {
                         <Text style={styles.timePrice}>19:20</Text>
                     </View>
                 </View>
-                <View style={styles.gallery}>
+                <ScrollView
+                    style={styles.gallery}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    scrollEventThrottle={10}>
                     <Image
                         style={styles.galleryItem}
                         source={gallery1}
@@ -81,16 +85,15 @@ const SingleFlyInfoPopup = (props) => {
                         style={styles.galleryItem}
                         source={gallery1}
                     />
-                </View>
+                </ScrollView>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     wrap: {
         height: '100%',
-        overflowY: 'scroll',
         margin: 'auto'
     },
     bg: {
@@ -206,8 +209,6 @@ const styles = StyleSheet.create({
         marginRight: 12.58
     },
     gallery: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
         marginTop: 23,
         width: 345,
         overflow: 'hidden'
