@@ -52,7 +52,7 @@ const SingleFlyInfoPopup = (props) => {
                 <View style={styles.boardWrap}>
                     <View style={styles.boardBlock}>
                         <Text style={styles.boardTitle}>Price</Text>
-                        <Text style={styles.timePrice}>{new Intl.NumberFormat('ru-RU').format(price)} ₽</Text>
+                        <Text style={styles.timePrice}>{price} ₽</Text>
                     </View>
                     <Text style={styles.sep}></Text>
                     <View style={styles.boardBlock}>
@@ -102,7 +102,12 @@ const styles = StyleSheet.create({
     },
     content: {
         backgroundColor: '#FFFFFF',
-        boxShadow: '0px -2px 10px rgba(0, 0, 0, 0.15)',
+        shadowColor: '#000',
+        shadowOpacity: 0.15,
+        shadowOffset: {
+            width: 2,
+            height: 2,
+        },
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         marginTop: -32,
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
     date: {
         fontFamily: 'SFPro',
         fontStyle: 'normal',
-        fonWeight: 'normal',
+        fontWeight: 'normal',
         fontSize: 13,
         lineHeight: 22,
         letterSpacing: -0.408,
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
     city: {
         fontFamily: 'SFPro',
         fontStyle: 'normal',
-        fonWeight: 'normal',
+        fontWeight: 'normal',
         fontSize: 13,
         lineHeight: 22,
         letterSpacing: -0.408,
@@ -159,10 +164,16 @@ const styles = StyleSheet.create({
         width: 315,
         height: 80,
         backgroundColor: '#1157A7',
-        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.3)',
+        shadowRadius: 2,
+        shadowOffset: {
+            width: 2,
+            height: 2,
+        },
+        shadowColor: '#000000',
+        shadowOpacity: 0.3,
         borderRadius: 10,
         paddingTop: 15,
-        paddingBotom: 15,
+        paddingBottom: 15,
         marginTop: 15
     },
     boardBlock: {
@@ -171,7 +182,7 @@ const styles = StyleSheet.create({
     boardTitle: {
         fontFamily: 'SFPro',
         fontStyle: 'normal',
-        fonWeight: 'normal',
+        fontWeight: 'normal',
         fontSize: 13,
         lineHeight: 22,
         letterSpacing: -0.408,
@@ -182,7 +193,7 @@ const styles = StyleSheet.create({
     timePrice: {
         fontFamily: 'Abel',
         fontStyle: 'normal',
-        fonWeight: 'normal',
+        fontWeight: 'normal',
         fontSize: 20,
         lineHeight: 22,
         letterSpacing: -0.408,

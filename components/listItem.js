@@ -42,7 +42,7 @@ const ListItem = (props) => {
                 </View>
                 <View style={styles.priceWrap}>
                     <Text style={styles.price}>price:
-                        <Text style={styles.sum}>{new Intl.NumberFormat('ru-RU').format(props.item.price)} ₽</Text>
+                        <Text style={styles.sum}>{props.item.price} ₽</Text>
                     </Text>
                 </View>
             </View>
@@ -55,10 +55,15 @@ const styles = StyleSheet.create({
         width: 335,
         height: 135,
         backgroundColor: '#FFFFFF',
-        boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
+        shadowRadius: 2,
+        shadowOffset: {
+            width: 2,
+            height: 2,
+        },
+        shadowColor: '#000000',
+        shadowOpacity: 0.15,
         borderRadius: 8,
         marginBottom: 20,
-        boxSizing: 'border-box',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',

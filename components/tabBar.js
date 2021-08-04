@@ -1,7 +1,7 @@
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import FlightsListContainer from './flightslist/flightsListContainer'
-import WishListContainer from './wishList/wishListContainer'
+import WishListContainer from './wishlist/wishListContainer'
 
 const Tab = createMaterialTopTabNavigator()
 
