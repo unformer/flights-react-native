@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native'
 import Moment from 'moment'
-import plane from '../assets/images/plane.svg'
-import wishYes from '../assets/images/wish-yes.svg'
-import wishNo from '../assets/images/wish-no.svg'
-import placeArrow from '../assets/images/place-arrow.svg'
+import plane from '../assets/images/plane.png'
+import wishYes from '../assets/images/wish-yes.png'
+import wishNo from '../assets/images/wish-no.png'
+import placeArrow from '../assets/images/place-arrow.png'
 
 
 const ListItem = (props) => {
@@ -32,18 +32,19 @@ const ListItem = (props) => {
                     <Text style={styles.date}>SVO - {Moment(props.item.date).format('DD MMMM,  YYYY')} - 15:30</Text>
                     <Text style={styles.company}>{props.item.company}</Text>
                 </View>
-                <View>
-                    <TouchableWithoutFeedback onPress={() => toggle(props.item.id)}>
+
+                <TouchableWithoutFeedback  onPress={() => toggle(props.item.id)}>
+                    <View style={styles.wishIconWrap}>
                         <Image
                             style={styles.wishIcon}
                             source={props.item.inWish ? wishYes : wishNo}
                         />
-                    </TouchableWithoutFeedback>
-                </View>
+                    </View>
+                </TouchableWithoutFeedback>
+
                 <View style={styles.priceWrap}>
-                    <Text style={styles.price}>price:
-                        <Text style={styles.sum}>{props.item.price} ₽</Text>
-                    </Text>
+                    <Text style={styles.price}>price:</Text>
+                    <Text style={styles.sum}>{props.item.price} ₽</Text>
                 </View>
             </View>
         </TouchableWithoutFeedback>
@@ -54,25 +55,24 @@ const styles = StyleSheet.create({
     flyBlock: {
         width: 335,
         height: 135,
-        backgroundColor: '#FFFFFF',
-        shadowRadius: 2,
+        backgroundColor: '#FFFFFF',        
         shadowOffset: {
             width: 2,
             height: 2,
         },
         shadowColor: '#000000',
-        shadowOpacity: 0.15,
+        shadowOpacity: 1,
+        shadowRadius: 2,
         borderRadius: 8,
         marginBottom: 20,
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        margin: 'auto'
+        justifyContent: 'space-between'
     },
     planeBg: {
         borderRadius: 100,
-        padding: '15 0',
+        paddingVertical: 15,
         width: 60,
         height: 60,
         backgroundColor: 'rgba(0, 119, 255, 0.05)',
@@ -87,17 +87,17 @@ const styles = StyleSheet.create({
         width: 33,
         height: 33
     },
+    wishIconWrap: {
+        paddingHorizontal: 15,
+        paddingVertical: 15
+    },
     wishIcon: {
         width: 17.42,
         height: 15.19,
-        marginTop: 15,
-        marginRight: 12.58
     },
     placeArrow: {
         width: 12,
-        height: 8,
-        marginRight: 12,
-        marginLeft: 20
+        height: 8
     },
     routeInfo: {
         marginTop: 20,
@@ -135,22 +135,23 @@ const styles = StyleSheet.create({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center'
-    },
-    price: {
-        width: 299,
-        textAlign: 'right',
+        justifyContent: 'flex-end',
         borderTopColor: 'rgba(196, 196, 196, 0.5)',
         borderStyle: 'solid',
         borderTopWidth: 1,
         paddingTop: 7.5,
+        marginTop: 7.5
+    },
+    price: {        
+        textAlign: 'right',      
         fontFamily: 'Abel',
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 11,
         lineHeight: 22,
         letterSpacing: -0.408,
-        color: '#878787'
+        color: '#878787',
+        marginRight: 10
     },
     sum: {
         fontFamily: 'SFPro',
@@ -160,7 +161,7 @@ const styles = StyleSheet.create({
         lineHeight: 22,
         letterSpacing: -0.408,
         color: '#000000',
-        marginLeft: 10
+        marginRight: 15
     }
 })
 

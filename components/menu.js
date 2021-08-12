@@ -16,13 +16,15 @@ const Menu = () => {
                     options={{
                         title: 'Flights',
                         headerStyle: {
-                            borderBottomWidth: 0
+                            elevation: 0,
+                            shadowOpacity: 0,
+                            borderBottomWidth: 0                            
                         },
                         headerTitleStyle: {
                             fontFamily: 'Abel',
                             fontStyle: 'normal',
                             fontWeight: 'normal',
-                            fontSize: 17,
+                            fontSize: 22,
                             lineHeight: 22,
                             textAlign: 'center',
                             letterSpacing: -0.408,
@@ -32,7 +34,7 @@ const Menu = () => {
                         },
                         safeAreaInsets: 'top',
                     }} />
-                <Popup.Screen name="SingleFly" component={SingleFlyInfoPopupContainer} options={{headerShown: false}} />
+                <Popup.Screen name="SingleFly" component={SingleFlyInfoPopupContainer} options={{ headerShown: false }} />
             </Popup.Navigator>
         </NavigationContainer>
     )

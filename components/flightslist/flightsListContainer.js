@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FlightsList from './flightsList'
 import { connect } from 'react-redux'
 import { GET_FLIGHTS_LIST, TOGGLE_WISHLIST } from '../../redux/flightsListReducer'
 
 const FlightsListContainer = (props) => {
 
-  props.flightsList.flightsList.length < 1 && props.getFlightsList()
+  useEffect(() => {
+    props.getFlightsList()
+  }, []);
 
   return (
     <FlightsList {...props} flightsList={props.flightsList.flightsList} toggleWishList={props.toggleWishList} />

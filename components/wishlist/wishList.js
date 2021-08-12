@@ -4,7 +4,7 @@ import ListItem from '../listItem'
 
 const WishList = (props) => {      
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
             {props.wishList.filter(item => item.inWish === true).map(f =>
                 <ListItem key={f.id} {...props} item={f} toggleWishList={props.toggleWishList} />
             )}
@@ -13,9 +13,13 @@ const WishList = (props) => {
 }
 
 const styles = StyleSheet.create({
-    container: {        
+    container: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
         paddingTop: 20,
-        backgroundColor: '#F8F8F8'
+        backgroundColor: '#F8F8F8',
+        minHeight: '100%'
     }
 })
 

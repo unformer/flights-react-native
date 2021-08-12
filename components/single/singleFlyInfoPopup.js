@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableWithoutFeedback, ScrollView } from 'react-native'
 import Moment from 'moment'
-import wishYes from '../../assets/images/wish-yes.svg'
-import wishNo from '../../assets/images/wish-no.svg'
-import singleBg from '../../assets/images/single-bg.svg'
-import singleArrow from '../../assets/images/single-arrow.svg'
-import gallery1 from '../../assets/images/gallery1.svg'
-import gallery2 from '../../assets/images/gallery2.svg'
+import wishYes from '../../assets/images/wish-yes.png'
+import wishNo from '../../assets/images/wish-no.png'
+import singleBg from '../../assets/images/single-bg.png'
+import singleArrow from '../../assets/images/single-arrow.png'
+import gallery1 from '../../assets/images/gallery1.png'
+import gallery2 from '../../assets/images/gallery2.png'
 
 const SingleFlyInfoPopup = (props) => {
 
@@ -23,17 +23,19 @@ const SingleFlyInfoPopup = (props) => {
                 />
             </TouchableWithoutFeedback>
             <View style={styles.content}>
-                <View style={styles.wishWrap}>
-                    <TouchableWithoutFeedback onPress={() => { props.toggleWishList(flyId) }}>
+
+                <TouchableWithoutFeedback onPress={() => { props.toggleWishList(flyId) }}>
+                    <View style={styles.wishWrap}>
                         <Image
                             style={styles.wishIcon}
                             source={inWish ? wishYes : wishNo}
                         />
-                    </TouchableWithoutFeedback>
-                </View>
+                    </View>
+                </TouchableWithoutFeedback>
+
                 <View style={styles.dateWrap}>
                     <View style={styles.placeBlock}>
-                        <Text style={styles.date}>{Moment(date).format('DD MMMM,  YYYY')}</Text>
+                        <Text style={styles.date}>{Moment(date).format('DD MMM,  YYYY')}</Text>
                         <Text style={styles.place}>SVO</Text>
                         <Text style={styles.city}>Moskow</Text>
                     </View>
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
         margin: 'auto'
     },
     bg: {
-        width: 375,
+        maxWidth: 375,
         height: 385,
     },
     content: {
@@ -111,7 +113,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         marginTop: -32,
-        width: 375,
+        maxWidth: 375,
         padding: 30,
         paddingBottom: 25
     },
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 13,
-        lineHeight: 22,
+        lineHeight: 13,
         letterSpacing: -0.408,
         color: '#878787',
     },
@@ -143,25 +145,25 @@ const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 36,
-        lineHeight: 22,
+        lineHeight: 36,
         letterSpacing: -0.408,
         color: '#404040',
         paddingTop: 10,
-        paddingBottom: 10
+        paddingBottom: 5
     },
     city: {
         fontFamily: 'SFPro',
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 13,
-        lineHeight: 22,
+        lineHeight: 13,
         letterSpacing: -0.408,
         color: '#878787',
     },
     boardWrap: {
         flexDirection: 'row',
         justifyContent: 'center',
-        width: 315,
+        width: '100%',
         height: 80,
         backgroundColor: '#1157A7',
         shadowRadius: 2,
@@ -209,15 +211,16 @@ const styles = StyleSheet.create({
     },
     wishWrap: {
         position: 'absolute',
-        top: 12,
-        right: 10,
-        zIndex: 999
+        right: 0,
+        zIndex: 999,
+        paddingHorizontal: 10,
+        paddingVertical: 10
     },
     wishIcon: {
-        width: 20,
-        height: 17,
+        width: 17.42,
+        height: 15.19,
         marginTop: 15,
-        marginRight: 12.58
+        marginRight: 12.58,
     },
     gallery: {
         marginTop: 23,

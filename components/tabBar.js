@@ -18,27 +18,25 @@ const Tabs = () => {
                     fontStyle: 'normal',
                     fontWeight: 'normal',
                     lineHeight: 22,
-                    textAlign: 'center',
                     letterSpacing: -0.408,
                     color: '#000000',
                 },
                 tabStyle: {
                 },
                 indicatorStyle: {
-                    width: 147.5,
-                    left: 20,
-                    right: 20,
+                    width: '50%',
                     height: 3,
                     backgroundColor: '#1157A7',
                     borderRadius: 2,
                     marginBottom: 5
                 },
                 style: {
-                    alignItems: 'space-between',
-                    textAlign: 'center',
-                    boxShadow: 'none',
-                    backgroundColor: 'rgba(255, 255, 255, 0.94)',
-                    boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.15)'
+                    shadowOffset: {
+                        width: 0,
+                        height: 2,
+                    },
+                    shadowColor: '#000000',
+                    shadowOpacity: 0.15,
                 },
             }}>
             <Tab.Screen name="Browse" component={FlightsListContainer} options={{ tabBarLabel: 'Browse' }} />
