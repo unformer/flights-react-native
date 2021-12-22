@@ -1,8 +1,17 @@
 import React from 'react'
-import { StyleSheet, View, ScrollView } from 'react-native'
+import { Text, StyleSheet, View, ScrollView } from 'react-native'
 import ListItem from '../listItem'
 
 const FlightsList = (props) => {
+    console.log('test:'+props.flightsList)
+    if(props.flightsList.length === 0){
+        return (
+            <View style={styles.preload}>
+                <Text>Loading...</Text>
+            </View>   
+        )     
+    }
+
     return (
         <ScrollView contentContainerStyle={styles.container}>
             {props.flightsList.map(f =>
@@ -20,6 +29,12 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         backgroundColor: '#F8F8F8',
         minHeight: '100%'
+    },
+    preload: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100%',
     }
 })
 
