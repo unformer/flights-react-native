@@ -1,7 +1,9 @@
 import { takeEvery, call, put, fork, all } from 'redux-saga/effects'
 import { flightsAPI } from '../api/flightsApi'
-import Moment from 'moment'
 import { updateObjectInArray } from '../utils/object-helpers'
+import 'react-native-get-random-values'
+import { v4 as uuidv4 } from 'uuid'
+import Moment from 'moment'
 
 export const GET_FLIGHTS_LIST = 'GET-FLIGHTS-LIST'
 const FLIGHTS_RECEIVED = 'FLIGHTS-RECEIVED'
@@ -44,19 +46,20 @@ function* watchFlightsList() {
 
 function* getFlightsInfo() {
     const flights = yield call(() => flightsAPI.getflights())
+    
     Moment.locale('en')
     const now = Moment().format('YYYY-MM-DD')
     const range = Moment().add(10, 'days').format('YYYY-MM-DD')
 
-    const qoutes = flights.Quotes.filter(q =>
-        Moment(Moment(q.OutboundLeg.DepartureDate).format('YYYY-MM-DD')).isSameOrAfter(now)
-        && Moment(Moment(q.OutboundLeg.DepartureDate).format('YYYY-MM-DD')).isSameOrBefore(range))
-
-    const flys = qoutes.map(q => ({
-        id: q.QuoteId,
-        date: Moment(q.OutboundLeg.DepartureDate).format('YYYY-MM-DD'),
-        price: q.MinPrice,
-        company: flights.Carriers.filter(c => c.CarrierId === q.OutboundLeg.CarrierIds[0])[0].Name,
+    const items = flights.best_prices.filter( item =>
+        Moment(Moment(item.depart_date).format('YYYY-MM-DD')).isSameOrAfter(now)
+        && Moment(Moment(item.depart_date).format('YYYY-MM-DD')).isSameOrBefore(range))
+   
+    const flys = items.map(fly => ({
+        id: uuidv4(),
+        date: Moment(fly.depart_date).format('YYYY-MM-DD'),
+        price: fly.value,
+        company: fly.gate,
         inWish: false
     }))
     

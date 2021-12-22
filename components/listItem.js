@@ -29,7 +29,7 @@ const ListItem = (props) => {
                 </View>
                 <View style={styles.routeInfo}>
                     <Text style={styles.route}>Moskow <Image style={styles.placeArrow} source={placeArrow} /> New York</Text>
-                    <Text style={styles.date}>SVO - {Moment(props.item.date).format('DD MMMM,  YYYY')} - 15:30</Text>
+                    <Text style={styles.date}>MOW - {Moment(props.item.date).format('DD MMMM,  YYYY')} - 15:30</Text>
                     <Text style={styles.company}>{props.item.company}</Text>
                 </View>
 
@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
     },
     routeInfo: {
         marginTop: 20,
-        marginRight: 20
     },
     route: {
         fontFamily: 'Abel',
